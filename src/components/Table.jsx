@@ -13,7 +13,7 @@ function Table() {
   };
 
   return (
-    <div class="grid grid-cols-5 gap-1 grid-rows-6 w-full h-full ">
+    <div class="grid grid-cols-5 gap-1 grid-rows-6 w-full h-full md:grid-cols-10 lg:grid-cols-12">
       <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
         B
       </div>
