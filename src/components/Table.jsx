@@ -13,147 +13,162 @@ function Table() {
   };
 
   return (
-    <div class="grid grid-cols-5 gap-1 grid-rows-6 w-full h-full md:grid-cols-10 lg:grid-cols-12">
-      <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
-        B
+    <div class="flex flex-col gap-2 bg-violet-300 items-center p-6">
+      <div className="flex flex-row gap-2">
+        <div class=" h-20 w-20 border p-1 text-center  bg-blue-500 text-3xl text-white rounded-sm">
+          B
+        </div>
+
+        <div class=" h-20 w-20 border p-1 text-center  text-3xl bg-blue-500 text-white rounded-sm">
+          I
+        </div>
+
+        <div class=" h-20 w-20 border p-1 text-center  text-3xl bg-blue-500 text-white rounded-sm">
+          N
+        </div>
+        <div class=" h-20 w-20 border p-1 text-center  text-3xl bg-blue-500 text-white rounded-sm">
+          G
+        </div>
+        <div class=" h-20 w-20 border p-1 text-center  text-3xl bg-blue-500 text-white rounded-sm">
+          O
+        </div>
       </div>
-      <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
-        I
+      <div className="flex flex-row gap-2">
+        {" "}
+        <div
+          class=" h-20 w-20 border p-1 text-center rounded-sm"
+          id="1"
+          onClick={() => handleClick(1)}
+        ></div>
+        <div
+          class="  h-20 w-20 border p-1 text-center"
+          id="2"
+          onClick={() => handleClick(2)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="3"
+          onClick={() => handleClick(3)}
+        ></div>
+        <div
+          class=" h-20 w-20   border p-1 text-center"
+          id="4"
+          onClick={() => handleClick(4)}
+        ></div>
+        <div
+          class=" h-20 w-20   border p-1 text-center"
+          id="5"
+          onClick={() => handleClick(5)}
+        ></div>
       </div>
-      <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
-        N
+      <div className="flex flex-row gap-2">
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="6"
+          onClick={() => handleClick(6)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="7"
+          onClick={() => handleClick(7)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="8"
+          onClick={() => handleClick(8)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="9"
+          onClick={() => handleClick(9)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="10"
+          onClick={() => handleClick(10)}
+        ></div>
       </div>
-      <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
-        G
+      <div className="flex flex-row gap-2">
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="11"
+          onClick={() => handleClick(11)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="12"
+          onClick={() => handleClick(12)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="13"
+          onClick={() => handleClick(13)}
+        ></div>
+        <div
+          class=" h-20 w-20   border p-1 text-center"
+          id="14"
+          onClick={() => handleClick(14)}
+        ></div>
+        <div
+          class=" h-20 w-20   border p-1 text-center"
+          id="15"
+          onClick={() => handleClick(15)}
+        ></div>
       </div>
-      <div className="border p-2 text-center bg-blue-500 text-white rounded-sm flex-1">
-        O
+      <div className="flex flex-row gap-2">
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="16"
+          onClick={() => handleClick(16)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="17"
+          onClick={() => handleClick(17)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="18"
+          onClick={() => handleClick(18)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="19"
+          onClick={() => handleClick(19)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="20"
+          onClick={() => handleClick(20)}
+        ></div>
       </div>
-      <div
-        class="border p-2 text-center  rounded-sm flex-1"
-        id="1"
-        onClick={() => handleClick(1)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="2"
-        onClick={() => handleClick(2)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="3"
-        onClick={() => handleClick(3)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="4"
-        onClick={() => handleClick(4)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="5"
-        onClick={() => handleClick(5)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="6"
-        onClick={() => handleClick(6)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="7"
-        onClick={() => handleClick(7)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="8"
-        onClick={() => handleClick(8)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="9"
-        onClick={() => handleClick(9)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="10"
-        onClick={() => handleClick(10)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="11"
-        onClick={() => handleClick(11)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="12"
-        onClick={() => handleClick(12)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="13"
-        onClick={() => handleClick(13)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="14"
-        onClick={() => handleClick(14)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="15"
-        onClick={() => handleClick(15)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="16"
-        onClick={() => handleClick(16)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="17"
-        onClick={() => handleClick(17)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="18"
-        onClick={() => handleClick(18)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="19"
-        onClick={() => handleClick(19)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="20"
-        onClick={() => handleClick(20)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="21"
-        onClick={() => handleClick(21)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="22"
-        onClick={() => handleClick(22)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="23"
-        onClick={() => handleClick(23)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="24"
-        onClick={() => handleClick(24)}
-      ></div>
-      <div
-        class="border p-2 text-center flex-1"
-        id="25"
-        onClick={() => handleClick(25)}
-      ></div>
+      <div className="flex flex-row gap-2">
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="21"
+          onClick={() => handleClick(21)}
+        ></div>
+        <div
+          class="  h-20 w-20  border p-1 text-center"
+          id="22"
+          onClick={() => handleClick(22)}
+        ></div>
+        <div
+          class=" h-20 w-20 border p-1 text-center"
+          id="23"
+          onClick={() => handleClick(23)}
+        ></div>
+        <div
+          class="h-20 w-20   border p-1 text-center"
+          id="24"
+          onClick={() => handleClick(24)}
+        ></div>
+        <div
+          class=" h-20 w-20  border p-1 text-center"
+          id="25"
+          onClick={() => handleClick(25)}
+        ></div>
+      </div>
     </div>
   );
 }
