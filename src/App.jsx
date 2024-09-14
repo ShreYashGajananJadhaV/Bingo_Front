@@ -3,7 +3,7 @@ import Table from "./components/Table";
 
 function App() {
   return (
-    <div className=" h-auto flex-wrap p-2 bg-yellow-500">
+    <div className=" h-auto w-auto flex-wrap p-2 bg-yellow-500">
       <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
         BINGO !
       </h1>
