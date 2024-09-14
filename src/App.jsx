@@ -3,7 +3,7 @@ import Table from "./components/Table";
 
 function App() {
   return (
-    <div className=" h-auto p-2 bg-yellow-500">
+    <div className=" h-auto flex-wrap p-2 bg-yellow-500">
       <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
         BINGO !
       </h1>
@@ -52,7 +52,7 @@ function App() {
           </form>
         </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 flex-wrap">
         <Table />
       </div>
     </div>
