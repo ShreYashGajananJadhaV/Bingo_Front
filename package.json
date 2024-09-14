@@ -1,4 +1,5 @@
 {
+  "homepage": "https://ShreYashGajananJadhaV.github.io/Bingo_Front",
   "name": "bingo-front",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "ghpages": "^0.0.10",
     "tailwindcss": "^3.4.11"
   }
 }
