@@ -26,7 +26,7 @@ function Details() {
       `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     let stompClient = Stomp.over(sock);
-
+    setStompClient(stompClient);
     stompClient.connect({}, () => {
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
         console.log(message);
