@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import SockJS from "sockjs-client";
+import { Stomp } from "@stomp/stompjs";
+// import EventEmitter from "events";
+
+// const emitter = new EventEmitter();
 
 function Details() {
   const [groupId, setGroupId] = useState("");
-
-  const [socket, setSocket] = useState("");
+  const [name, setName] = useState("");
+  const [stompClient, setStompClient] = useState("");
 
   function generateRandomCode() {
     const characters =
@@ -17,34 +22,35 @@ function Details() {
   }
 
   function sendConnectionRequest() {
-    if (!socket || socket.readyState === WebSocket.CLOSED) {
-      const socketUrl = `ws://localhost:8080/ws?groupId=${groupId}`;
-      const socket = new WebSocket(socketUrl);
-      setSocket(socket);
+    let sock = new SockJS(
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
+    );
+    let stompClient = Stomp.over(sock);
 
-      socket.addEventListener("open", () => {
-        console.log("Connected to the WebSocket server");
-        socket.send("Hello, server!");
+    stompClient.connect({}, () => {
+      stompClient.subscribe(`/queue/${groupId}`, (message) => {
+        console.log(message);
       });
-
-      socket.addEventListener("message", (event) => {
-        console.log(`Received message: ${event.data}`);
-        // Handle incoming message from the server
-      });
-
-      socket.addEventListener("error", (event) => {
-        console.log(`Error occurred: ${event}`);
-        // Handle error
-      });
-
-      socket.addEventListener("close", () => {
-        console.log("WebSocket connection closed");
-        // Handle disconnection
-      });
-    } else {
-      socket.send("Hello, server!");
-    }
+    });
   }
+
+  const handleSendMessage = () => {
+    stompClient.send(
+      "/app/sendToUser",
+      {},
+      JSON.stringify({ recipient: "user1", message: "23" })
+    );
+  };
+
+  // emitter.on("handleClick", handleSendMessage);
+
+  const handleGrouopIdChange = (e) => {
+    setGroupId(e.target.value);
+  };
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
   return (
     <div class="flex flex-col justify-center items-center">
       <div class="max-w-md p-6 rounded-2xl shadow-md bg-gray-200">
@@ -64,6 +70,7 @@ function Details() {
               id="first-name"
               class="w-full p-2 pl-10 text-lg text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="Mickey"
+              onChange={handleName}
             />
           </div>
           <div class="flex flex-col mb-4">
@@ -79,6 +86,7 @@ function Details() {
               id="connection-code"
               class="w-full p-2 pl-10 text-md text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="XXXX-XXXX"
+              onChange={handleGrouopIdChange}
             />
           </div>
           <div class="flex justify-between mb-4 space-x-4">
@@ -93,6 +101,13 @@ function Details() {
               onClick={() => sendConnectionRequest()}
             >
               Submit
+            </button>
+
+            <button
+              class="w-full md:w-1/2 p-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg"
+              onClick={() => handleSendMessage()}
+            >
+              number-Send
             </button>
           </div>
         </div>

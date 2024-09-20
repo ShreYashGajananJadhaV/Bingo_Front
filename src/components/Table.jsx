@@ -1,10 +1,16 @@
 import React from "react";
+// import EventEmitter from "events";
+
+// const emitter = new EventEmitter();
 
 function Table() {
   var num = 1;
 
   const handleClick = (id) => {
     const element = document.getElementById(id);
+    // if (element != null && element.textContent != "") {
+    //   emitter.emit("handleClick");
+    // }
     if (element != null && element.textContent === "") {
       element.textContent = num++;
     } else {
