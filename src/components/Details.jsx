@@ -29,7 +29,7 @@ function Details() {
     setStompClient(stompClient);
     stompClient.connect({}, () => {
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
-        console.log("The message is " + message);
+        console.log("THE MESSAGE RECIEVED IS------ " + message);
       });
     });
   }
