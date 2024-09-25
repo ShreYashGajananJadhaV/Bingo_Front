@@ -23,7 +23,7 @@ function Details() {
 
   function sendConnectionRequest() {
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     let stompClient = Stomp.over(sock);
     setStompClient(stompClient);
