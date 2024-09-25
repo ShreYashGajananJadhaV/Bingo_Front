@@ -23,13 +23,13 @@ function Details() {
 
   function sendConnectionRequest() {
     let sock = new SockJS(
-      `https://localhost:8080/ws?groupId=${groupId}&user=${name}`
+      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
     let stompClient = Stomp.over(sock);
     setStompClient(stompClient);
     stompClient.connect({}, () => {
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
-        console.log(message);
+        console.log("The message is " + message);
       });
     });
   }
@@ -38,11 +38,9 @@ function Details() {
     stompClient.send(
       "/app/sendToUser",
       {},
-      JSON.stringify({ recipient: "user1", message: "23" })
+      JSON.stringify({ sender: name, groupId: groupId, message: "23" })
     );
   };
-
-  // emitter.on("handleClick", handleSendMessage);
 
   const handleGrouopIdChange = (e) => {
     setGroupId(e.target.value);
