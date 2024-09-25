@@ -23,7 +23,7 @@ function Details() {
 
   function sendConnectionRequest() {
     let sock = new SockJS(
-      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
+      `https://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     let stompClient = Stomp.over(sock);
     setStompClient(stompClient);
