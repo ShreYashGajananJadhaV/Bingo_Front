@@ -36,7 +36,10 @@ function Details() {
       console.log(connecting);
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
         setMessage(message.body);
-        console.log("THE MESSAGE RECIEVED IS------ " + message.body);
+        if (message !== null && message !== "") {
+          alert("Message recieved is" + message);
+          setMessage(null);
+        }
       });
       setConnected(true);
       console.log(connected);
@@ -54,13 +57,6 @@ function Details() {
       alert(`Connection established is ${connected}`);
     }
   };
-
-  setInterval(() => {
-    if (message !== null && message !== "") {
-      alert("Message recieved is" + message);
-      setMessage("");
-    }
-  }, 1000);
 
   const handleGrouopIdChange = (e) => {
     setGroupId(e.target.value);
