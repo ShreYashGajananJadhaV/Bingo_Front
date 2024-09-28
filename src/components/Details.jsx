@@ -43,7 +43,7 @@ function Details() {
       });
 
       stompClient.subscribe(`/user/${groupId}/${name}`, (mess) => {
-        console.log(`Message recieved is ....${mess.body}`);
+        alert(`The Message recieved is ....${mess.body}`);
       });
     });
   }
