@@ -9,6 +9,7 @@ function Details() {
   const [groupId, setGroupId] = useState("");
   const [name, setName] = useState("");
   const [stompClient, setStompClient] = useState("");
+  const [message, setMessage] = useState("");
 
   function generateRandomCode() {
     const characters =
@@ -20,7 +21,7 @@ function Details() {
     }
     setGroupId(randomCode);
   }
-
+  // communist-candi-shreyashjadhav-baaa549c.koyeb.app
   function sendConnectionRequest() {
     let sock = new SockJS(
       `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
@@ -29,6 +30,7 @@ function Details() {
     setStompClient(stompClient);
     stompClient.connect({}, () => {
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
+        setMessage(message.body);
         console.log("THE MESSAGE RECIEVED IS------ " + message.body);
       });
     });
@@ -41,6 +43,13 @@ function Details() {
       JSON.stringify({ sender: name, groupId: groupId, message: "23" })
     );
   };
+
+  setInterval(() => {
+    if (message !== null && message !== "") {
+      swal("Message recieved is" + message);
+      setMessage("");
+    }
+  }, 1000);
 
   const handleGrouopIdChange = (e) => {
     setGroupId(e.target.value);
