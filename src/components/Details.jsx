@@ -46,7 +46,7 @@ function Details() {
 
   setInterval(() => {
     if (message !== null && message !== "") {
-      swal("Message recieved is" + message);
+      alert("Message recieved is" + message);
       setMessage("");
     }
   }, 1000);
