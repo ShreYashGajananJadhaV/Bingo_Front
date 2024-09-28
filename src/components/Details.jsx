@@ -9,9 +9,8 @@ function Details() {
   const [groupId, setGroupId] = useState("");
   const [name, setName] = useState("");
   const [stompClient, setStompClient] = useState("");
-  const [message, setMessage] = useState("");
+  const [messageNumber, setMessageNumber] = useState("");
   const [connected, setConnected] = useState(false);
-  const [connecting, setConnecting] = useState(false);
 
   function generateRandomCode() {
     const characters =
@@ -32,17 +31,14 @@ function Details() {
     setStompClient(stompClient);
 
     stompClient.connect({}, () => {
-      setConnecting(true);
-      console.log(connecting);
+      alert("You are connected to server...");
+      setConnected(true);
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
-        setMessage(message.body);
+        setMessageNumber(message.body);
         if (message !== null && message !== "") {
-          alert("Message recieved is" + message);
-          setMessage(null);
+          alert("Message recieved is --" + messageNumber);
         }
       });
-      setConnected(true);
-      console.log(connected);
     });
   }
 
@@ -54,7 +50,7 @@ function Details() {
         JSON.stringify({ sender: name, groupId: groupId, message: "23" })
       );
     } else {
-      alert(`Connection established is ${connected}`);
+      alert(`Connection to the server is not established`);
     }
   };
 
