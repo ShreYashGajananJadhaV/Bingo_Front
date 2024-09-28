@@ -10,6 +10,8 @@ function Details() {
   const [name, setName] = useState("");
   const [stompClient, setStompClient] = useState("");
   const [message, setMessage] = useState("");
+  const [connected, setConnected] = useState(false);
+  const [connecting, setConnecting] = useState(false);
 
   function generateRandomCode() {
     const characters =
@@ -28,20 +30,29 @@ function Details() {
     );
     let stompClient = Stomp.over(sock);
     setStompClient(stompClient);
+
     stompClient.connect({}, () => {
+      setConnecting(true);
+      console.log(connecting);
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
         setMessage(message.body);
         console.log("THE MESSAGE RECIEVED IS------ " + message.body);
       });
+      setConnected(true);
+      console.log(connected);
     });
   }
 
   const handleSendMessage = () => {
-    stompClient.send(
-      "/app/sendToUser",
-      {},
-      JSON.stringify({ sender: name, groupId: groupId, message: "23" })
-    );
+    if (connected) {
+      stompClient.send(
+        "/app/sendToUser",
+        {},
+        JSON.stringify({ sender: name, groupId: groupId, message: "23" })
+      );
+    } else {
+      alert(`Connection established is ${connected}`);
+    }
   };
 
   setInterval(() => {
