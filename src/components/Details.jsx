@@ -34,6 +34,7 @@ function Details() {
     stompClient.connect({}, () => {
       alert("You are connected to server...");
       setConnected(true);
+
       stompClient.subscribe(`/queue/${groupId}`, (message) => {
         setMessageNumber(message.body);
         if (message !== null && message !== "") {
@@ -82,6 +83,7 @@ function Details() {
               class="w-full p-2 pl-10 text-lg text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="Mickey"
               onChange={handleName}
+              disabled={connected}
             />
           </div>
           <div class="flex flex-col mb-4">
@@ -98,6 +100,7 @@ function Details() {
               class="w-full p-2 pl-10 text-md text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="XXXX-XXXX"
               onChange={handleGrouopIdChange}
+              disabled={connected}
             />
           </div>
           <div class="flex justify-between mb-4 space-x-4">
