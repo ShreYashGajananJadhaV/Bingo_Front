@@ -11,6 +11,7 @@ function Details() {
   const [stompClient, setStompClient] = useState("");
   const [messageNumber, setMessageNumber] = useState("");
   const [connected, setConnected] = useState(false);
+  const [connecting, setConnecting] = useState(false);
 
   function generateRandomCode() {
     const characters =
@@ -29,7 +30,7 @@ function Details() {
     );
     let stompClient = Stomp.over(sock);
     setStompClient(stompClient);
-
+    setConnecting(true);
     stompClient.connect({}, () => {
       alert("You are connected to server...");
       setConnected(true);
@@ -103,12 +104,14 @@ function Details() {
             <button
               class="w-full md:w-1/2 p-2 bg-orange-500 hover:bg-orange-700 text-white font-bold rounded-lg"
               onClick={() => generateRandomCode()}
+              disabled={connecting}
             >
               Generate Code
             </button>
             <button
               class="w-full md:w-1/2 p-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg"
               onClick={() => sendConnectionRequest()}
+              disabled={connecting}
             >
               Submit
             </button>
