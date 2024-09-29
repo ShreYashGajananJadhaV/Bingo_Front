@@ -46,7 +46,9 @@ function Details() {
         alert(`The Message recieved is ....${mess.body}`);
       });
     });
-
+    if (!connected) {
+      alert("NOT CONNECTED--- PLZ TRY AGAIN");
+    }
     setConnecting(false);
   }
 
