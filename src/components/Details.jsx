@@ -46,6 +46,8 @@ function Details() {
         alert(`The Message recieved is ....${mess.body}`);
       });
     });
+
+    setConnecting(false);
   }
 
   const handleSendMessage = () => {
@@ -104,21 +106,25 @@ function Details() {
               class="w-full p-2 pl-10 text-md text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="XXXX-XXXX"
               onChange={handleGrouopIdChange}
-              disabled={connected}
+              disabled={connecting || connected}
             />
           </div>
           <div class="flex justify-between mb-4 space-x-4">
             <button
-              class="w-full md:w-1/2 p-2 bg-orange-500 hover:bg-orange-700 text-white font-bold rounded-lg"
+              class={`w-full md:w-1/2 p-2 bg-orange-500 hover:bg-orange-700 text-white font-bold rounded-lg ${
+                connecting || connected ? "cursor-not-allowed" : ""
+              }`}
               onClick={() => generateRandomCode()}
-              disabled={connecting}
+              disabled={connecting || connected}
             >
               Generate Code
             </button>
             <button
-              class="w-full md:w-1/2 p-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg"
+              class={`w-full md:w-1/2 p-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg ${
+                connecting || connected ? "cursor-not-allowed" : ""
+              }`}
               onClick={() => sendConnectionRequest()}
-              disabled={connecting}
+              disabled={connecting || connected}
             >
               Submit
             </button>
