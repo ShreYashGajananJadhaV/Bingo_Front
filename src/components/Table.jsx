@@ -3,8 +3,16 @@ import { useContext, useEffect } from "react";
 import MessageContext from "./MessageContext";
 
 function Table() {
-  const { message, stompClient, setNum, Num, connected, name, groupId } =
-    useContext(MessageContext);
+  const {
+    message,
+    stompClient,
+    setNum,
+    Num,
+    connected,
+    name,
+    groupId,
+    setConstValMap,
+  } = useContext(MessageContext);
 
   const handleClick = (id) => {
     const element = document.getElementById(id);
@@ -24,6 +32,11 @@ function Table() {
     if (element != null && element.textContent === "") {
       element.textContent = Num;
       setNum(Num + 1);
+
+      const newConst = id;
+      const newValue = element.textContent;
+
+      setConstValMap((prevMap) => ({ ...prevMap, [newConst]: newValue }));
     } else {
       console.log("ele is null");
     }

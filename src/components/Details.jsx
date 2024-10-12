@@ -15,6 +15,7 @@ function Details() {
     setName,
     groupId,
     setGroupId,
+    constValMap,
   } = useContext(MessageContext);
 
   const [connecting, setConnecting] = useState(false);
@@ -40,7 +41,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
+      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -59,6 +60,12 @@ function Details() {
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
           setMessage(message.body);
         });
+
+        stompClient.send(
+          "/app/sendPlayerMap",
+          {},
+          JSON.stringify({ constValMap })
+        );
       },
       (error) => {
         console.log("I am in ERROR =BLOCK");

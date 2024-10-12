@@ -11,6 +11,7 @@ function App() {
   var [stompClient, setStompClient] = useState(null);
   const [name, setName] = useState("");
   const [groupId, setGroupId] = useState("");
+  const [constValMap, setConstValMap] = useState({});
 
   return (
     <MessageContext.Provider
@@ -27,6 +28,8 @@ function App() {
         setName,
         groupId,
         setGroupId,
+        constValMap,
+        setConstValMap,
       }}
     >
       <div className=" h-auto w-auto flex-wrap p-2 bg-yellow-500">
