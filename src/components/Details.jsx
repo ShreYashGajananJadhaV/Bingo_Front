@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import SockJS from "sockjs-client";
+import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
-// import EventEmitter from "events";
-
-// const emitter = new EventEmitter();
 
 function Details() {
-  const [groupId, setGroupId] = useState("");
-  const [name, setName] = useState("");
-  const [stompClient, setStompClient] = useState("");
-  const [messageNumber, setMessageNumber] = useState("");
-  const [connected, setConnected] = useState(false);
+  const {
+    setMessage,
+    setStompClient,
+    stompClient,
+    Num,
+    connected,
+    setConnected,
+    name,
+    setName,
+    groupId,
+    setGroupId,
+  } = useContext(MessageContext);
+
   const [connecting, setConnecting] = useState(false);
 
   function generateRandomCode() {
@@ -23,32 +29,47 @@ function Details() {
     }
     setGroupId(randomCode);
   }
+
   // communist-candi-shreyashjadhav-baaa549c.koyeb.app
+
   function sendConnectionRequest() {
+    // debugger;
+    if (!Num || Num < 25) {
+      alert("------PLEASE FILL THE TABLE FIRST-----");
+      return;
+    }
+
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
-    let stompClient = Stomp.over(sock);
+    var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
     setConnecting(true);
-    stompClient.connect({}, () => {
-      alert("You are connected to server...");
-      setConnected(true);
 
-      stompClient.subscribe(`/queue/${groupId}`, (message) => {
-        setMessageNumber(message.body);
-        if (message !== null && message !== "") {
-          alert("Message recieved is --" + messageNumber);
+    stompClient.connect(
+      {},
+      () => {
+        setConnected(true);
+        alert("You are connected to server...");
+
+        stompClient.subscribe(`/queue/${groupId}`, (message) => {
+          setMessage(message.body);
+        });
+
+        stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
+          setMessage(message.body);
+        });
+      },
+      (error) => {
+        console.log("I am in ERROR =BLOCK");
+        if (error.headers) {
+          console.log("Error headers:", error.headers);
         }
-      });
-
-      stompClient.subscribe(`/user/${groupId}/${name}`, (mess) => {
-        alert(`The Message recieved is ....${mess.body}`);
-      });
-    });
-    if (!connected) {
-      alert("NOT CONNECTED--- PLZ TRY AGAIN");
-    }
+        if (error.body) {
+          console.log("Error body:", error.body);
+        }
+      }
+    );
     setConnecting(false);
   }
 
@@ -91,7 +112,7 @@ function Details() {
               class="w-full p-2 pl-10 text-lg text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               placeholder="Mickey"
               onChange={handleName}
-              disabled={connected}
+              disabled={connecting || connected}
             />
           </div>
           <div class="flex flex-col mb-4">

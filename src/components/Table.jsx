@@ -1,22 +1,39 @@
 import React from "react";
-// import EventEmitter from "events";
-
-// const emitter = new EventEmitter();
+import { useContext, useEffect } from "react";
+import MessageContext from "./MessageContext";
 
 function Table() {
-  var num = 1;
+  const { message, stompClient, setNum, Num, connected, name, groupId } =
+    useContext(MessageContext);
 
   const handleClick = (id) => {
     const element = document.getElementById(id);
-    // if (element != null && element.textContent != "") {
-    //   emitter.emit("handleClick");
-    // }
+
+    if (connected) {
+      stompClient.send(
+        "/app/sendToUser",
+        {},
+        JSON.stringify({
+          sender: name,
+          groupId: groupId,
+          message: element.textContent,
+        })
+      );
+    }
+
     if (element != null && element.textContent === "") {
-      element.textContent = num++;
+      element.textContent = Num;
+      setNum(Num + 1);
     } else {
       console.log("ele is null");
     }
   };
+
+  useEffect(() => {
+    if (message) {
+      alert("Message recieved is --" + message);
+    }
+  }, [message]);
 
   return (
     <div class="flex flex-col gap-2 flex-wrap bg-violet-300 items-center p-6">
