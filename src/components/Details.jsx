@@ -61,7 +61,15 @@ function Details() {
           setMessage(message.body);
         });
 
-        stompClient.send("/app/sendPlayerMap", {}, JSON.stringify(constValMap));
+        stompClient.send(
+          "/app/sendPlayerMap",
+          {},
+          JSON.stringify({
+            name: name,
+            groupId: groupId,
+            constValMap: constValMap,
+          })
+        );
       },
       (error) => {
         console.log("I am in ERROR =BLOCK");
@@ -71,6 +79,10 @@ function Details() {
         if (error.body) {
           console.log("Error body:", error.body);
         }
+      },
+      () => {
+        alert("---Connection Disabled----");
+        setConnected(false); // Set connected to false on disconnect
       }
     );
     setConnecting(false);
@@ -87,7 +99,6 @@ function Details() {
       alert(`Connection to the server is not established`);
     }
   };
-
   const handleGrouopIdChange = (e) => {
     setGroupId(e.target.value);
   };
