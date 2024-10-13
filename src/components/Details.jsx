@@ -41,7 +41,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
+      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -164,13 +164,6 @@ function Details() {
               disabled={connecting || connected}
             >
               Submit
-            </button>
-
-            <button
-              class="w-full md:w-1/2 p-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg"
-              onClick={() => handleSendMessage()}
-            >
-              number-Send
             </button>
           </div>
         </div>
