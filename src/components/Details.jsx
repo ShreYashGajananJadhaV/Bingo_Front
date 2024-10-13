@@ -54,7 +54,7 @@ function Details() {
         alert("You are connected to server...");
 
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
-          setMessage(message.body);
+          // setMessage(message.body);
         });
 
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {

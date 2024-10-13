@@ -24,12 +24,13 @@ function Table() {
         JSON.stringify({
           sender: name,
           groupId: groupId,
-          message: element.textContent,
+          message: id,
         })
       );
-    }
 
-    if (element != null && element.textContent === "") {
+      element.style.filter = "blur(6px)";
+      element.disabled = true;
+    } else if (element != null && element.textContent === "") {
       element.textContent = Num;
       setNum(Num + 1);
 
@@ -37,14 +38,14 @@ function Table() {
       const newValue = element.textContent;
 
       setConstValMap((prevMap) => ({ ...prevMap, [newConst]: newValue }));
-    } else {
-      console.log("ele is null");
     }
   };
 
   useEffect(() => {
     if (message) {
-      alert("Message recieved is --" + message);
+      const element = document.getElementById(message);
+      element.style.filter = "blur(6px)";
+      element.disabled = true;
     }
   }, [message]);
 
