@@ -41,7 +41,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -51,7 +51,6 @@ function Details() {
       {},
       () => {
         setConnected(true);
-        alert("You are connected to server...");
 
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
           // setMessage(message.body);
@@ -70,6 +69,7 @@ function Details() {
             constValMap: constValMap,
           })
         );
+        alert("You are connected to server...");
       },
       (error) => {
         console.log("I am in ERROR =BLOCK");
@@ -82,7 +82,7 @@ function Details() {
       },
       () => {
         alert("---Connection Disabled----");
-        setConnected(false); // Set connected to false on disconnect
+        setConnected(false);
       }
     );
     setConnecting(false);
