@@ -8,7 +8,7 @@ function App() {
   const [message, setMessage] = useState(null);
   const [Num, setNum] = useState(1);
   const [connected, setConnected] = useState(false);
-  var [stompClient, setStompClient] = useState(null);
+  const [stompClient, setStompClient] = useState(null);
   const [name, setName] = useState("");
   const [groupId, setGroupId] = useState("");
   const [constValMap, setConstValMap] = useState({});
@@ -32,7 +32,7 @@ function App() {
         setConstValMap,
       }}
     >
-      <div className=" h-auto w-auto flex-wrap p-2 bg-yellow-500">
+      <div className="retro h-auto w-auto flex-wrap p-2" data-theme="dim">
         <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
           BINGO !
         </h1>
