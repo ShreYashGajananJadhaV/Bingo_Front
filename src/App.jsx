@@ -32,7 +32,7 @@ function App() {
         setConstValMap,
       }}
     >
-      <div className="h-screen w-screen flex-wrap p-2" data-theme="dim">
+      <div className="h-full w-full flex-wrap p-2" data-theme="dim">
         <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
           BINGO !
         </h1>
