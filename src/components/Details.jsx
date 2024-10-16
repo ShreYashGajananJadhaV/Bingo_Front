@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import SockJS from "sockjs-client";
 import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
+import { RingLoader } from "react-spinners";
 
 function Details() {
   const {
@@ -109,9 +110,21 @@ function Details() {
           Enter Your Details
         </h2>
         <div
-          className={connecting ? "flex justify-center inset-0 z-20" : "hidden"}
+          className={
+            connecting
+              ? "fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10"
+              : "hidden"
+          }
+        ></div>
+
+        <div
+          className={
+            connecting
+              ? "flex justify-center items-center fixed inset-0 z-20"
+              : "hidden"
+          }
         >
-          <span className="loading loading-spinner"></span>
+          <RingLoader speedMultiplier={1.4} size={160} color="#36d80a" />
         </div>
 
         <div>
