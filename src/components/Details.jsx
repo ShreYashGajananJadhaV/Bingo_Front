@@ -87,7 +87,7 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        alert("---Connection Disabled----");
+        alert("Disconnected. PLEASE TRY AGAIN");
         setConnected(false);
       }
     );
