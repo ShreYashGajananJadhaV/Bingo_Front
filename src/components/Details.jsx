@@ -71,9 +71,11 @@ function Details() {
             constValMap: constValMap,
           })
         );
+        setConnecting(false);
         alert("CONNECTED");
       },
       (error) => {
+        setConnecting(false);
         console.log("I am in ERROR =BLOCK");
         if (error.headers) {
           console.log("Error headers:", error.headers);
@@ -83,13 +85,11 @@ function Details() {
         }
       },
       () => {
+        setConnecting(false);
         alert("---Connection Disabled----");
         setConnected(false);
       }
     );
-    setTimeout(() => {
-      setConnecting(false);
-    }, 2000);
   }
 
   const handleGrouopIdChange = (e) => {
