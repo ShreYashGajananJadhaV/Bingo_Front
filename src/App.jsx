@@ -37,7 +37,7 @@ function App() {
           BINGO !
         </h1>
         <Details />
-        <div className="p-5 flex-wrap">
+        <div className="p-5 flex-wrap flex justify-center">
           <Table />
         </div>
       </div>
