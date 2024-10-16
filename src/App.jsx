@@ -32,14 +32,12 @@ function App() {
         setConstValMap,
       }}
     >
-      <div className="h-full w-full flex-wrap p-2" data-theme="dim">
+      <div className="h-100vh flex-grow  flex-wrap p-2" data-theme="dracula">
         <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
           BINGO !
         </h1>
         <Details />
-        <div className="p-5 flex-wrap flex justify-center">
-          <Table />
-        </div>
+        <Table />
       </div>
     </MessageContext.Provider>
   );
