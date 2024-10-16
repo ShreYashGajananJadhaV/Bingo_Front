@@ -33,7 +33,7 @@ function App() {
       }}
     >
       <div
-        className="h-100vh bg-cover flex-grow  flex-wrap p-2"
+        className="h-100vh h-full flex-grow  flex-wrap p-2"
         data-theme="dracula"
       >
         <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
