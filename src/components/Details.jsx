@@ -34,7 +34,6 @@ function Details() {
     }
     setGroupId(randomCode);
   }
-  // Dependency array includes message
 
   // communist-candi-shreyashjadhav-baaa549c.koyeb.app
 
@@ -59,9 +58,10 @@ function Details() {
       () => {
         setConnected(true);
         setOpponentStatus("WAITING FOR OPPONENT");
+
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
           setConnecting(false);
-          toast(message, { position: "top-center" });
+          toast(message.body, { position: "top-center" });
         });
 
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
