@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import SockJS from "sockjs-client";
 import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
-import { RingLoader } from "react-spinners";
+import { RingLoader, PulseLoader } from "react-spinners";
+import ReactTypingEffect from "react-typing-effect";
 
 function Details() {
   const {
@@ -20,7 +21,7 @@ function Details() {
   } = useContext(MessageContext);
 
   const [connecting, setConnecting] = useState(false);
-
+  const [opponentStatus, setOpponentStatus] = useState("");
   function generateRandomCode() {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
@@ -44,7 +45,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -54,9 +55,10 @@ function Details() {
       {},
       () => {
         setConnected(true);
-
+        setOpponentStatus("WAITING FOR OPPONENT");
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
           alert(message.body);
+          setConnecting(false);
         });
 
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
@@ -72,8 +74,6 @@ function Details() {
             constValMap: constValMap,
           })
         );
-        setConnecting(false);
-        alert("CONNECTED");
       },
       (error) => {
         setConnecting(false);
@@ -118,13 +118,34 @@ function Details() {
         ></div>
 
         <div
-          className={
+          className={`${
             connecting
-              ? "flex justify-center items-center fixed inset-0 z-20"
+              ? "flex flex-col justify-center items-center fixed inset-0 z-20 bg-gray-800 bg-opacity-75"
               : "hidden"
-          }
+          }`}
         >
           <RingLoader speedMultiplier={1.4} size={160} color="#36d80a" />
+
+          <h1
+            className={`${
+              connected && connecting
+                ? "font-mono text-2xl text-white mt-4"
+                : "hidden"
+            }`}
+          >
+            CONNECTED.
+            <ReactTypingEffect text={opponentStatus} speed={50} />
+          </h1>
+          <section
+            className={`${
+              connected && connecting
+                ? "flex flex-col justify-center items-center mt-4"
+                : "hidden"
+            }`}
+          >
+            <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
+            <PulseLoader color="#298c25" />
+          </section>
         </div>
 
         <div>
