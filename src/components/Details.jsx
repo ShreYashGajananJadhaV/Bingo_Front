@@ -72,8 +72,10 @@ function Details() {
           setConnecting(false);
           if (message.body.includes("HAS DISCONNECTED")) {
             setConnected(false);
+            gameStatus(message.body);
+          } else {
+            toast(message.body, { position: "top-center" });
           }
-          toast(message.body, { position: "top-center" });
         });
 
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
@@ -102,27 +104,30 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-          customClass: {
-            popup: "rounded-3xl shadow-3xl ",
-            container: "rounded-lg",
-          },
-          didOpen: () => {
-            // Set data-theme attribute
-            const popup = Swal.getPopup(); // Get the popup element
-            if (popup) {
-              popup.setAttribute("data-theme", "sunset"); // Set your desired theme
-            }
-          },
-        });
+        gameStatus("Something went wrong!");
         setConnected(false);
       }
     );
   }
 
+  function gameStatus(message) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: message,
+      customClass: {
+        popup: "rounded-3xl shadow-3xl ",
+        container: "rounded-lg",
+      },
+      didOpen: () => {
+        // Set data-theme attribute
+        const popup = Swal.getPopup(); // Get the popup element
+        if (popup) {
+          popup.setAttribute("data-theme", "sunset"); // Set your desired theme
+        }
+      },
+    });
+  }
   const handleGrouopIdChange = (e) => {
     setGroupId(e.target.value);
   };
