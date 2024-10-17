@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import SockJS from "sockjs-client";
 import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
 import { RingLoader, PulseLoader } from "react-spinners";
 import ReactTypingEffect from "react-typing-effect";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Details() {
   const {
@@ -32,6 +34,7 @@ function Details() {
     }
     setGroupId(randomCode);
   }
+  // Dependency array includes message
 
   // communist-candi-shreyashjadhav-baaa549c.koyeb.app
 
@@ -45,7 +48,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -57,8 +60,8 @@ function Details() {
         setConnected(true);
         setOpponentStatus("WAITING FOR OPPONENT");
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
-          alert(message.body);
           setConnecting(false);
+          toast(message, { position: "top-center" });
         });
 
         stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
@@ -87,7 +90,7 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        alert("Disconnected. PLEASE TRY AGAIN");
+        toast("Disconnected. PLEASE TRY AGAIN", { position: "top-center" });
         setConnected(false);
       }
     );
@@ -102,6 +105,7 @@ function Details() {
   };
   return (
     <div class=" flex flex-col justify-center items-center">
+      <ToastContainer />
       <div
         class="max-w-md p-6 rounded-2xl shadow-md border-2"
         data-theme="halloween"
@@ -124,7 +128,7 @@ function Details() {
               : "hidden"
           }`}
         >
-          <RingLoader speedMultiplier={1.4} size={160} color="#36d80a" />
+          <RingLoader speedMultiplier={1.4} size={150} color="#36d80a" />
 
           <h1
             className={`${
