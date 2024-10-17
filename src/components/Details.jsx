@@ -41,15 +41,23 @@ function Details() {
     // debugger;
     if (!Num || Num < 25) {
       setTimeout(() => {
-        alert("------PLEASE FILL THE TABLE FIRST-----");
+        toast("------PLEASE FILL THE TABLE FIRST-----", {
+          position: "top-center",
+        });
       }, 100);
       return;
+    }
+
+    if (name == "" || name == null || groupId == null || groupId == "") {
+      toast("PLEASE FILL THE NAME AND CONNECTION CODE", {
+        position: "top-center",
+      });
     }
 
     let sock = new SockJS(
       `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
-    var stompClient = Stomp.over(sock);
+    stompClient = Stomp.over(sock);
     setStompClient(stompClient);
     setConnecting(true);
 
@@ -61,6 +69,9 @@ function Details() {
 
         stompClient.subscribe(`/queue/${groupId}`, (message) => {
           setConnecting(false);
+          if (message.body.includes("HAS DISCONNECTED")) {
+            setConnected(false);
+          }
           toast(message.body, { position: "top-center" });
         });
 
@@ -90,7 +101,9 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        toast("Disconnected. PLEASE TRY AGAIN", { position: "top-center" });
+        toast("GAME DISCONNECTED. PLEASE TRY AGAIN", {
+          position: "top-center",
+        });
         setConnected(false);
       }
     );
