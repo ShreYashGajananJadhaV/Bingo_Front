@@ -5,6 +5,7 @@ import { Stomp } from "@stomp/stompjs";
 import { RingLoader, PulseLoader } from "react-spinners";
 import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 
 function Details() {
@@ -101,8 +102,21 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        toast("GAME DISCONNECTED. PLEASE TRY AGAIN", {
-          position: "top-center",
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          customClass: {
+            popup: "rounded-3xl shadow-3xl ",
+            container: "rounded-lg",
+          },
+          didOpen: () => {
+            // Set data-theme attribute
+            const popup = Swal.getPopup(); // Get the popup element
+            if (popup) {
+              popup.setAttribute("data-theme", "sunset"); // Set your desired theme
+            }
+          },
         });
         setConnected(false);
       }
