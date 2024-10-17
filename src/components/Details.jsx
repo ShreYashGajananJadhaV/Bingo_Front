@@ -57,7 +57,7 @@ function Details() {
     let sock = new SockJS(
       `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
-    stompClient = Stomp.over(sock);
+    var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
     setConnecting(true);
 
