@@ -134,8 +134,8 @@ function Details() {
             }`}
           >
             CONNECTED.
-            <ReactTypingEffect text={opponentStatus} speed={50} />
           </h1>
+          <ReactTypingEffect text={opponentStatus} speed={50} />
           <section
             className={`${
               connected && connecting
