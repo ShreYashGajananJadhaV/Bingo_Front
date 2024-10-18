@@ -12,6 +12,8 @@ function App() {
   const [name, setName] = useState("");
   const [groupId, setGroupId] = useState("");
   const [constValMap, setConstValMap] = useState({});
+  const [chance, setChance] = useState(true);
+  const [rowsCompleted, setRowsCompleted] = useState(0);
 
   return (
     <MessageContext.Provider
@@ -30,6 +32,10 @@ function App() {
         setGroupId,
         constValMap,
         setConstValMap,
+        chance,
+        setChance,
+        rowsCompleted,
+        setRowsCompleted,
       }}
     >
       <div className="h-max flex-grow  flex-wrap p-2" data-theme="dim">
@@ -37,6 +43,9 @@ function App() {
           BINGO !
         </h1>
         <Details />
+        <h2 className="flex justify-center font-bold">
+          {chance ? "YOUR CHANCE TO PLAY" : "OPPONENT IS PLAYING"}
+        </h2>
         <Table />
       </div>
     </MessageContext.Provider>

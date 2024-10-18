@@ -21,6 +21,8 @@ function Details() {
     groupId,
     setGroupId,
     constValMap,
+    setChance,
+    setRowsCompleted,
   } = useContext(MessageContext);
 
   const [connecting, setConnecting] = useState(false);
@@ -49,7 +51,7 @@ function Details() {
       return;
     }
 
-    if (name == "" || name == null || groupId == null || groupId == "") {
+    if (name === "" || name === null || groupId === null || groupId === "") {
       toast("PLEASE FILL THE NAME AND CONNECTION CODE", {
         position: "top-center",
       });
@@ -78,8 +80,23 @@ function Details() {
           }
         });
 
-        stompClient.subscribe(`/user/${groupId}/${name}`, (message) => {
-          setMessage(message.body);
+        stompClient.subscribe(`/user/${groupId}/${name}`, (mess) => {
+          const data_OBJ = JSON.parse(mess.body);
+          const playerChance = data_OBJ.playerChance;
+          const data = data_OBJ.message;
+          const won = data_OBJ.won;
+          const rows = Number(data_OBJ.rowsCompleted);
+          console.log(playerChance + data + won + rows);
+          setChance(playerChance);
+          setRowsCompleted(rows);
+          if (won) {
+            //handle Won condition
+            handleWON(data);
+          } else if (data.includes("LOST")) {
+            gameStatus(data);
+          } else {
+            setMessage(data);
+          }
         });
 
         stompClient.send(
@@ -108,6 +125,22 @@ function Details() {
         setConnected(false);
       }
     );
+  }
+
+  function handleWON(messs) {
+    Swal.fire({
+      title: { messs },
+      width: 600,
+      padding: "3em",
+      color: "#716add",
+      background: "#fff url(/images/trees.png)",
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        left top
+        no-repeat
+      `,
+    });
   }
 
   function gameStatus(message) {
