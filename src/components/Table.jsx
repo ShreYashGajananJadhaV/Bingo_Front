@@ -20,7 +20,7 @@ function Table() {
   const handleClick = (id) => {
     const element = document.getElementById(id);
 
-    if (connected) {
+    if (connected && element.getAttribute("data-theme") !== "retro") {
       setChance(false);
       stompClient.send(
         "/app/sendToUser",

@@ -129,7 +129,7 @@ function Details() {
 
   function handleWON(messs) {
     Swal.fire({
-      title: { messs },
+      title: messs,
       width: 600,
       padding: "3em",
       color: "#716add",
