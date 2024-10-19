@@ -23,6 +23,7 @@ function Details() {
     constValMap,
     setChance,
     setRowsCompleted,
+    setOpponentName,
   } = useContext(MessageContext);
 
   const [connecting, setConnecting] = useState(false);
@@ -85,6 +86,7 @@ function Details() {
           const playerChance = data_OBJ.playerChance;
           const data = data_OBJ.message;
           const won = data_OBJ.won;
+          setOpponentName(data_OBJ.opponentName);
           const rows = Number(data_OBJ.rowsCompleted);
           console.log(playerChance + data + won + rows);
           setChance(playerChance);

@@ -21,7 +21,6 @@ function Table() {
     const element = document.getElementById(id);
 
     if (connected && element.getAttribute("data-theme") !== "retro") {
-      setChance(false);
       stompClient.send(
         "/app/sendToUser",
         {},

@@ -14,6 +14,7 @@ function App() {
   const [constValMap, setConstValMap] = useState({});
   const [chance, setChance] = useState(true);
   const [rowsCompleted, setRowsCompleted] = useState(0);
+  const [opponentName, setOpponentName] = useState("");
 
   return (
     <MessageContext.Provider
@@ -36,6 +37,8 @@ function App() {
         setChance,
         rowsCompleted,
         setRowsCompleted,
+        opponentName,
+        setOpponentName,
       }}
     >
       <div className="h-max flex-grow  flex-wrap p-2" data-theme="dim">
@@ -44,7 +47,11 @@ function App() {
         </h1>
         <Details />
         <h2 className="flex justify-center font-bold">
-          {chance ? "YOUR CHANCE TO PLAY" : "OPPONENT IS PLAYING"}
+          {connected && opponentName
+            ? chance
+              ? "YOUR CHANCE TO PLAY"
+              : `${opponentName} IS PLAYING`
+            : ""}
         </h2>
         <Table />
       </div>
