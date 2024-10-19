@@ -59,7 +59,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `http://localhost:8080/ws?groupId=${groupId}&user=${name}`
+      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
@@ -170,91 +170,123 @@ function Details() {
   const handleName = (e) => {
     setName(e.target.value);
   };
+  // code for copy functionality --
+  const [isGenerate, setIsGenerate] = useState(true);
+
+  const copyToClipboard = async () => {
+    try {
+      await window.navigator.clipboard.writeText(
+        document.getElementById("connection-code").value
+      );
+      console.log(
+        "Copied to clipboard! and the value is " +
+          document.getElementById("connection-code").value
+      );
+    } catch (err) {
+      console.error("Unable to copy to clipboard.", err);
+      console.log("Copy to clipboard failed.");
+    }
+  };
   return (
     <div class=" flex flex-col justify-center items-center">
       <ToastContainer />
-      <div
-        class="max-w-md p-6 rounded-2xl shadow-md border-2"
-        data-theme="halloween"
-      >
-        <h2 class="text-center text-3xl font-bold mb-4 text-blue-500">
-          Enter Your Details
-        </h2>
+      {!connected ? (
         <div
-          className={
-            connecting
-              ? "fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10"
-              : "hidden"
-          }
-        ></div>
-
-        <div
-          className={`${
-            connecting
-              ? "flex flex-col justify-center items-center fixed inset-0 z-20 bg-gray-800 bg-opacity-75"
-              : "hidden"
-          }`}
+          class="max-w-md p-6 rounded-2xl shadow-md border-2"
+          data-theme="halloween"
         >
-          <RingLoader speedMultiplier={1.4} size={150} color="#36d80a" />
+          <h2 class="text-center text-3xl font-bold mb-4 text-blue-500">
+            Game Details
+          </h2>
+          <div
+            className={
+              connecting
+                ? "fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-10"
+                : "hidden"
+            }
+          ></div>
 
-          <h1
+          <div
             className={`${
-              connected && connecting
-                ? "font-mono text-2xl text-white mt-4"
+              connecting
+                ? "flex flex-col justify-center items-center fixed inset-0 z-20 bg-gray-800 bg-opacity-75"
                 : "hidden"
             }`}
           >
-            CONNECTED.
-          </h1>
-          <ReactTypingEffect text={opponentStatus} speed={50} />
-          <section
-            className={`${
-              connected && connecting
-                ? "flex flex-col justify-center items-center mt-4"
-                : "hidden"
-            }`}
-          >
-            <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
-            <PulseLoader color="#298c25" />
-          </section>
-        </div>
+            <RingLoader speedMultiplier={1.4} size={150} color="#36d80a" />
 
-        <div>
-          <div class="flex flex-col mb-4">
-            <label
-              for="first-name"
-              class="text-sm font-bold mb-1 text-gray-400"
+            <h1
+              className={`${
+                connected && connecting
+                  ? "font-mono text-2xl text-white mt-4"
+                  : "hidden"
+              }`}
             >
-              Name
-            </label>
-            <input
-              type="text"
-              id="first-name"
-              class="w-full p-2 pl-10 text-lg font-mono text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-              placeholder="Mickey"
-              onChange={handleName}
-              disabled={connecting || connected}
-            />
-          </div>
-          <div class="flex flex-col mb-4">
-            <label
-              for="connection-code"
-              class="text-sm font-bold mb-1 text-gray-400"
+              CONNECTED.
+            </h1>
+            <ReactTypingEffect text={opponentStatus} speed={50} />
+            <section
+              className={`${
+                connected && connecting
+                  ? "flex flex-col justify-center items-center mt-4"
+                  : "hidden"
+              }`}
             >
-              Connection Code
-            </label>
-            <input
-              type="text"
-              value={groupId}
-              id="connection-code"
-              class="w-full p-2 pl-10 text-md font-mono text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
-              placeholder="XXXX-XXXX"
-              onChange={handleGrouopIdChange}
-              disabled={connecting || connected}
-            />
+              <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
+              <PulseLoader color="#298c25" />
+            </section>
           </div>
-          <div class="flex justify-between mb-4 space-x-4">
-            <button
+
+          <div>
+            <div class="flex flex-col mb-4">
+              <input
+                type="text"
+                id="first-name"
+                class="w-full p-2 pl-10 text-lg font-mono text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="Name"
+                onChange={handleName}
+                disabled={connecting || connected}
+              />
+            </div>
+            <div class="flex flex-col mb-4 relative">
+              <section>
+                {isGenerate ? (
+                  <button
+                    className="bg-blue-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    data-theme="aqua"
+                    onClick={() => {
+                      setIsGenerate(false);
+                      generateRandomCode();
+                    }}
+                    disabled={connecting || connected}
+                  >
+                    Generate
+                  </button>
+                ) : (
+                  <button
+                    className="bg-blue-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    data-theme="aqua"
+                    disabled={connecting || connected}
+                    onClick={() => {
+                      copyToClipboard();
+                    }}
+                  >
+                    Copy
+                  </button>
+                )}
+                <input
+                  type="text"
+                  value={groupId}
+                  id="connection-code"
+                  class="w-full p-2 pl-10 text-md font-mono text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
+                  placeholder="Code"
+                  onChange={handleGrouopIdChange}
+                  disabled={connecting || connected}
+                />
+              </section>
+            </div>
+            <div class="flex justify-between mb-4 space-x-4">
+              {/* <button
               className={` glass w-full md:w-1/2 p-2 text-gray-100 font-mono font-bold outline-none focus:ring-2 ring-slate-300  shadow-lg rounded-2xl transform active:scale-90 transition-transform ${
                 connecting || connected ? "cursor-not-allowed" : ""
               }`}
@@ -263,20 +295,23 @@ function Details() {
               disabled={connecting || connected}
             >
               Generate Code
-            </button>
-            <button
-              class={`glass w-full md:w-1/2 p-2 text-gray-100 font-mono font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-2xl transform active:scale-90 transition-transform${
-                connecting || connected ? "cursor-not-allowed" : ""
-              }`}
-              data-theme="aqua"
-              onClick={() => sendConnectionRequest()}
-              disabled={connecting || connected}
-            >
-              Submit
-            </button>
+            </button> */}
+              <button
+                class={`glass w-full  p-2 text-gray-100 font-mono font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-2xl transform active:scale-90 transition-transform${
+                  connecting || connected ? "cursor-not-allowed" : ""
+                }`}
+                data-theme="aqua"
+                onClick={() => sendConnectionRequest()}
+                disabled={connecting || connected}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
