@@ -20,6 +20,7 @@ function Table() {
     chance,
     rowsCompleted,
     connecting,
+    setChance,
   } = useContext(MessageContext);
 
   const [pop] = useSound(popSound);
@@ -32,9 +33,11 @@ function Table() {
     if (
       connected &&
       element.getAttribute("data-theme") !== "retro" &&
-      !connecting
+      !connecting &&
+      chance
     ) {
       pop();
+      setChance(false);
       stompClient.send(
         "/app/sendToUser",
         {},
