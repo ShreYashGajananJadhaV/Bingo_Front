@@ -5,8 +5,7 @@ import useSound from "use-sound";
 import popSound from "../sounds/popSound.mp3";
 import clickSound from "../sounds/clickSound.mp3";
 import pickSound from "../sounds/pickSound.mp3";
-import Lottie from "lottie-react";
-import DancingCat from "./dancingcat.json";
+
 function Table() {
   const {
     message,
