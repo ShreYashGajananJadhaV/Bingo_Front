@@ -3,7 +3,8 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   
   daisyui: {
-    themes: [      "light",
+    themes: [      
+      "light",
       "dark",
       "cupcake",
       "bumblebee",
