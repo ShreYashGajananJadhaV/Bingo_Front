@@ -84,11 +84,9 @@ function Table() {
       element.setAttribute("data-theme", "retro");
       element.style.filter = "blur(3px)";
       element.disabled = true;
-      element.classList.add("animate-wiggle-more");
-
-      setTimeout(() => {
-        element.classList.remove("animate-wiggle-more");
-      }, 1500);
+      element.classList.add(
+        "animate-jump animate-once animate-ease-in-out animate-fill-both"
+      );
     }
   }, [message]);
 
