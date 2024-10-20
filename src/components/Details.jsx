@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import SockJS from "sockjs-client";
 import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
+import Lottie from "lottie-react";
+import bufferingAnimation from "../AnimationComponents/BufferingAni.json";
 import { RingLoader, PulseLoader } from "react-spinners";
 import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
@@ -233,7 +235,7 @@ function Details() {
                 : "hidden"
             }`}
           >
-            <RingLoader speedMultiplier={1.4} size={150} color="#36d80a" />
+            <Lottie animationData={bufferingAnimation}></Lottie>
 
             <h1
               className={`${
