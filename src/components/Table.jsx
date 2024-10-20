@@ -84,9 +84,7 @@ function Table() {
       element.setAttribute("data-theme", "retro");
       element.style.filter = "blur(3px)";
       element.disabled = true;
-      element.classList.add(
-        "animate-jump animate-once animate-ease-in-out animate-fill-both"
-      );
+      element.classList.add("animate-jump animate-once");
     }
   }, [message]);
 
