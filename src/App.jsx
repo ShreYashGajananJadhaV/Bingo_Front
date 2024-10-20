@@ -3,7 +3,7 @@ import { useState } from "react";
 import Table from "./components/Table";
 import Details from "./components/Details";
 import MessageContext from "./components/MessageContext";
-import BingoLogo from "./components/bingologo.json";
+import BingoLogo from "./AnimationComponents/bingologo.json";
 import Lottie from "lottie-react";
 function App() {
   const [message, setMessage] = useState(null);
