@@ -84,17 +84,17 @@ function Table() {
       element.setAttribute("data-theme", "retro");
       element.style.filter = "blur(3px)";
       element.disabled = true;
-      element.classList.add("animate-ping");
+      element.classList.add("animate-wiggle-more");
 
       setTimeout(() => {
-        element.classList.remove("animate-ping");
-      }, 1000);
+        element.classList.remove("animate-wiggle-more");
+      }, 1500);
     }
   }, [message]);
 
   return (
     <div className="flex flex-col flex-wrap gap-2 items-center p-6 ">
-      <div className="flex flex-row gap-2  justify-center md:flex-wrap">
+      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
         <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
           B
         </div>
