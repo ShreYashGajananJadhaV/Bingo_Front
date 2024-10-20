@@ -5,7 +5,8 @@ import useSound from "use-sound";
 import popSound from "../sounds/popSound.mp3";
 import clickSound from "../sounds/clickSound.mp3";
 import pickSound from "../sounds/pickSound.mp3";
-
+import Lottie from "lottie-react";
+import DancingCat from "./dancingcat.json";
 function Table() {
   const {
     message,
@@ -94,23 +95,30 @@ function Table() {
 
   return (
     <div className="flex flex-col flex-wrap gap-2 items-center p-6 ">
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
+      <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
+        {/* <Lottie
+          className="w-[80px] h-[80px] xl:w-[100px] xl:h-[100px] absolute top-[-40px] right-[-40px]"
+          animationData={DancingCat}
+        ></Lottie> */}
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans ">
           B
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans ">
           I
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
           N
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
           G
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-blue-500 text-white rounded-lg font-mono">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
           O
         </div>
       </div>
+
+      <div class="divider"></div>
+
       <div className="flex flex-row gap-2 justify-center md:flex-wrap">
         <button
           className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"

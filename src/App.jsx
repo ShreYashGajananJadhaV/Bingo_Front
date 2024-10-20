@@ -3,7 +3,8 @@ import { useState } from "react";
 import Table from "./components/Table";
 import Details from "./components/Details";
 import MessageContext from "./components/MessageContext";
-
+import BingoLogo from "./components/bingologo.json";
+import Lottie from "lottie-react";
 function App() {
   const [message, setMessage] = useState(null);
   const [Num, setNum] = useState(1);
@@ -44,10 +45,17 @@ function App() {
         setOpponentName,
       }}
     >
-      <div className="h-max flex-grow  flex-wrap p-2" data-theme="dim">
-        <h1 className="text-3xl font-serif text-center mb-4 rounded-lg bg-slate-600 ">
+      <div className="h-max flex-grow  flex-wrap p-2" data-theme="dracula">
+        {/* <h1 className="text-4xl font-sans font-bold text-center mb-4 py-2 rounded-lg">
           BINGO !
-        </h1>
+        </h1> */}
+        <div>
+          {" "}
+          <Lottie
+            className="w-[130px] h-[130px] m-auto"
+            animationData={BingoLogo}
+          ></Lottie>
+        </div>
         <Details />
         <h2 className="flex justify-center font-bold">
           {connected && opponentName

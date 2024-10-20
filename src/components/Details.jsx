@@ -201,7 +201,7 @@ function Details() {
                 : "hidden"
             }`}
           >
-            <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
+            <h1 className="font-sans text-xl text-white">STARTING GAME</h1>
             <PulseLoader color="#298c25" />
           </section>
         </section>
@@ -212,10 +212,10 @@ function Details() {
       <ToastContainer />
       {!connected ? (
         <div
-          class="max-w-md p-6 rounded-2xl shadow-md border-2"
+          class="max-w-md p-4 rounded-2xl shadow-md border-2"
           data-theme="halloween"
         >
-          <h2 class="text-center text-3xl font-bold mb-4 text-blue-500">
+          <h2 class="text-center text-3xl font-bold mb-4 text-teal-500">
             Game Details
           </h2>
           <div
@@ -238,7 +238,7 @@ function Details() {
             <h1
               className={`${
                 connected && connecting
-                  ? "font-mono text-2xl text-white mt-4"
+                  ? "font-sans text-2xl text-white mt-4"
                   : "hidden"
               }`}
             >
@@ -251,8 +251,8 @@ function Details() {
               <input
                 type="text"
                 id="first-name"
-                class="w-full p-2 pl-10 text-lg font-mono text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="Name"
+                class="w-full p-2 pl-10 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="NAME"
                 onChange={handleName}
                 disabled={connecting || connected}
               />
@@ -261,7 +261,7 @@ function Details() {
               <section>
                 {isGenerate ? (
                   <button
-                    className="bg-blue-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    className="bg-teal-800 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
                     data-theme="aqua"
                     onClick={() => {
                       setIsGenerate(false);
@@ -273,7 +273,7 @@ function Details() {
                   </button>
                 ) : (
                   <button
-                    className="bg-blue-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    className="bg-teal-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
                     data-theme="aqua"
                     disabled={connecting || connected}
                     onClick={() => {
@@ -287,7 +287,7 @@ function Details() {
                   type="text"
                   value={groupId}
                   id="connection-code"
-                  class="w-full p-2 pl-10 text-md font-mono text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
+                  class="w-full p-2 pl-10 text-md font-sans text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
                   placeholder="Code"
                   onChange={handleGrouopIdChange}
                   disabled={connecting || connected}
@@ -306,7 +306,7 @@ function Details() {
               Generate Code
             </button> */}
               <button
-                class={`glass w-full  p-2 text-gray-100 font-mono font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-2xl transform active:scale-90 transition-transform${
+                class={`bg-teal-600 font-sans w-full  p-2 text-gray-100  font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-2xl transform active:scale-90 transition-transform${
                   connecting || connected ? "cursor-not-allowed" : ""
                 }`}
                 data-theme="aqua"
