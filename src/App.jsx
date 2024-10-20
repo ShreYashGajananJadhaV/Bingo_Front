@@ -15,6 +15,7 @@ function App() {
   const [chance, setChance] = useState(true);
   const [rowsCompleted, setRowsCompleted] = useState(0);
   const [opponentName, setOpponentName] = useState("");
+  const [connecting, setConnecting] = useState(false);
 
   return (
     <MessageContext.Provider
@@ -38,6 +39,8 @@ function App() {
         rowsCompleted,
         setRowsCompleted,
         opponentName,
+        connecting,
+        setConnecting,
         setOpponentName,
       }}
     >

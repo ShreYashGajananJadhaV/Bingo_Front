@@ -3,6 +3,9 @@ import { useContext, useEffect } from "react";
 import MessageContext from "./MessageContext";
 import useSound from "use-sound";
 import popSound from "../sounds/popSound.mp3";
+import clickSound from "../sounds/clickSound.mp3";
+import pickSound from "../sounds/pickSound.mp3";
+
 function Table() {
   const {
     message,
@@ -14,16 +17,23 @@ function Table() {
     groupId,
     setConstValMap,
     chance,
-    setChance,
     rowsCompleted,
+    connecting,
   } = useContext(MessageContext);
 
   const [pop] = useSound(popSound);
+  const [click] = useSound(clickSound);
+  const [pick] = useSound(pickSound);
 
   const handleClick = (id) => {
     const element = document.getElementById(id);
-    pop();
-    if (connected && element.getAttribute("data-theme") !== "retro") {
+
+    if (
+      connected &&
+      element.getAttribute("data-theme") !== "retro" &&
+      !connecting
+    ) {
+      pop();
       stompClient.send(
         "/app/sendToUser",
         {},
@@ -40,7 +50,7 @@ function Table() {
     } else if (element != null && element.textContent === "") {
       element.textContent = Num;
       setNum(Num + 1);
-
+      click();
       const newConst = id;
       const newValue = element.textContent;
 
@@ -65,11 +75,20 @@ function Table() {
   }, [rowsCompleted]);
 
   useEffect(() => {
-    if (message) {
+    if (
+      message &&
+      document.getElementById(message).getAttribute("data-theme") != "retro"
+    ) {
+      pick();
       const element = document.getElementById(message);
       element.setAttribute("data-theme", "retro");
       element.style.filter = "blur(3px)";
       element.disabled = true;
+      element.classList.add("animate-ping");
+
+      setTimeout(() => {
+        element.classList.remove("animate-ping");
+      }, 1000);
     }
   }, [message]);
 

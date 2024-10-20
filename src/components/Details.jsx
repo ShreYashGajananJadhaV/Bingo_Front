@@ -24,9 +24,10 @@ function Details() {
     setChance,
     setRowsCompleted,
     setOpponentName,
+    connecting,
+    setConnecting,
   } = useContext(MessageContext);
 
-  const [connecting, setConnecting] = useState(false);
   const [opponentStatus, setOpponentStatus] = useState("");
   function generateRandomCode() {
     const characters =
@@ -187,8 +188,27 @@ function Details() {
       console.log("Copy to clipboard failed.");
     }
   };
+
   return (
     <div class=" flex flex-col justify-center items-center">
+      {connecting && connected ? (
+        <section>
+          <ReactTypingEffect text={opponentStatus} speed={50} />
+          <section
+            className={`${
+              connected && connecting
+                ? "flex flex-col justify-center items-center mt-4"
+                : "hidden"
+            }`}
+          >
+            <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
+            <PulseLoader color="#298c25" />
+          </section>
+        </section>
+      ) : (
+        ""
+      )}
+
       <ToastContainer />
       {!connected ? (
         <div
@@ -224,17 +244,6 @@ function Details() {
             >
               CONNECTED.
             </h1>
-            <ReactTypingEffect text={opponentStatus} speed={50} />
-            <section
-              className={`${
-                connected && connecting
-                  ? "flex flex-col justify-center items-center mt-4"
-                  : "hidden"
-              }`}
-            >
-              <h1 className="font-serif text-xl text-white">STARTING GAME</h1>
-              <PulseLoader color="#298c25" />
-            </section>
           </div>
 
           <div>
