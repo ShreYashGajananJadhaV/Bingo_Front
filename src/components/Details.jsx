@@ -264,7 +264,7 @@ function Details() {
               <section>
                 {isGenerate ? (
                   <button
-                    className="bg-teal-800 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    className="bg-teal-800 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px] transform active:scale-90 transition-transform"
                     data-theme="aqua"
                     onClick={() => {
                       setIsGenerate(false);
@@ -276,7 +276,7 @@ function Details() {
                   </button>
                 ) : (
                   <button
-                    className="bg-teal-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px]"
+                    className="bg-teal-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px] transform active:scale-90 transition-transform"
                     data-theme="aqua"
                     disabled={connecting || connected}
                     onClick={() => {
