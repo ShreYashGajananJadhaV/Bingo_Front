@@ -46,7 +46,7 @@ function Details() {
 
   function sendConnectionRequest() {
     // debugger;
-    if (!Num || Num < 25) {
+    if (!Num || Num < 26) {
       setTimeout(() => {
         toast("------PLEASE FILL THE TABLE FIRST-----", {
           position: "top-center",
