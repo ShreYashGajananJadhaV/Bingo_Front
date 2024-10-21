@@ -59,6 +59,7 @@ function Details() {
       toast("PLEASE FILL THE NAME AND CONNECTION CODE", {
         position: "top-center",
       });
+      return;
     }
 
     let sock = new SockJS(
