@@ -168,11 +168,11 @@ function Details() {
     });
   }
   const handleGrouopIdChange = (e) => {
-    setGroupId(e.target.value);
+    setGroupId(e.target.value.trim());
   };
 
   const handleName = (e) => {
-    setName(e.target.value);
+    setName(e.target.value.trim());
   };
   // code for copy functionality --
   const [isGenerate, setIsGenerate] = useState(true);
