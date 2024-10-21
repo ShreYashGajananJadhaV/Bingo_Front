@@ -61,7 +61,7 @@ function App() {
           {connected && opponentName
             ? chance
               ? "YOUR CHANCE TO PLAY"
-              : `${opponentName} IS PLAYING`
+              : `${opponentName.toUpperCase()} IS PLAYING`
             : ""}
         </h2>
         <Table />
