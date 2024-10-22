@@ -27,9 +27,8 @@ function Table() {
   const [pick] = useSound(pickSound);
 
   const handleClick = (id) => {
-    debugger;
     const element = document.getElementById(id);
-    console.log("I am in handleCLick with " + id);
+    console.log("I a in handleCLick");
     if (
       connected &&
       element.getAttribute("data-theme") !== "retro" &&
@@ -51,7 +50,7 @@ function Table() {
       element.style.filter = "blur(3px)";
       element.setAttribute("data-theme", "retro");
       element.disabled = true;
-    } else {
+    } else if (element != null && element.textContent === "") {
       element.textContent = Num;
       setNum(Num + 1);
       click();
