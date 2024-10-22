@@ -149,6 +149,10 @@ function Details() {
         left top
         no-repeat
       `,
+      customClass: {
+        popup: "rounded-3xl shadow-3xl",
+        container: "rounded-lg",
+      },
     });
   }
 
