@@ -47,16 +47,16 @@ function Details() {
   function sendConnectionRequest() {
     // debugger;
     if (!Num || Num < 26) {
-      setTimeout(() => {
-        toast("------PLEASE FILL THE TABLE FIRST-----", {
-          position: "top-center",
-        });
-      }, 100);
+      toast.warn(`PLEASE FILL THE TABLE FIRST`, {
+        toastId: "666",
+        position: "top-center",
+      });
       return;
     }
 
     if (name === "" || name === null || groupId === null || groupId === "") {
-      toast("PLEASE FILL THE NAME AND CONNECTION CODE", {
+      toast.warning("PLEASE FILL THE NAME AND CONNECTION CODE", {
+        toastId: "667",
         position: "top-center",
       });
       return;
@@ -81,7 +81,10 @@ function Details() {
             setConnected(false);
             gameStatus(message.body);
           } else {
-            toast(message.body, { position: "top-center" });
+            toast.success(message.body, {
+              toastId: "668",
+              position: "top-center",
+            });
           }
         });
 
@@ -194,6 +197,7 @@ function Details() {
 
   return (
     <div class=" flex flex-col justify-center items-center">
+      <ToastContainer />
       {connecting && connected ? (
         <section>
           <ReactTypingEffect text={opponentStatus} speed={50} />
@@ -212,7 +216,6 @@ function Details() {
         ""
       )}
 
-      <ToastContainer />
       {!connected ? (
         <div
           class="max-w-md p-4 rounded-2xl shadow-md border-2"

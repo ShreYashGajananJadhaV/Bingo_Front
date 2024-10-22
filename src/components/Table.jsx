@@ -27,8 +27,9 @@ function Table() {
   const [pick] = useSound(pickSound);
 
   const handleClick = (id) => {
+    debugger;
     const element = document.getElementById(id);
-
+    console.log("I am in handleCLick with " + id);
     if (
       connected &&
       element.getAttribute("data-theme") !== "retro" &&
@@ -50,7 +51,7 @@ function Table() {
       element.style.filter = "blur(3px)";
       element.setAttribute("data-theme", "retro");
       element.disabled = true;
-    } else if (element != null && element.textContent === "") {
+    } else {
       element.textContent = Num;
       setNum(Num + 1);
       click();
@@ -67,11 +68,16 @@ function Table() {
     bingoCells.forEach((cell, index) => {
       if (index < rowsCompleted) {
         // Add blur effect and change data-theme to cupcake
-        cell.classList.add("blur");
         cell.setAttribute("data-theme", "cupcake");
+        const existingLine = cell.querySelector(".diagonal-line");
+        if (!existingLine) {
+          const line = document.createElement("span");
+          line.className =
+            "diagonal-line absolute animate-fade rounded-3xl top-1/2 left-0 w-full h-1 bg-black transform rotate-45 bg-slate-600";
+          cell.appendChild(line);
+        }
       } else {
         // Remove blur effect and reset data-theme if needed
-        cell.classList.remove("blur");
         cell.setAttribute("data-theme", "default"); // Replace "default" with your actual default theme name
       }
     });
@@ -98,23 +104,19 @@ function Table() {
   return (
     <div className="flex flex-col flex-wrap gap-2 items-center p-6 ">
       <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
-        {/* <Lottie
-          className="w-[80px] h-[80px] xl:w-[100px] xl:h-[100px] absolute top-[-40px] right-[-40px]"
-          animationData={DancingCat}
-        ></Lottie> */}
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans ">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
           B
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans ">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
           I
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
           N
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
           G
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans">
+        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
           O
         </div>
       </div>
