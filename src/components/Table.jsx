@@ -102,23 +102,30 @@ function Table() {
 
   return (
     <div className="flex flex-col flex-wrap gap-2 items-center p-6 ">
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
-          B
+      {connected ? (
+        <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
+          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+            B
+          </div>
+          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+            I
+          </div>
+          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+            N
+          </div>
+          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+            G
+          </div>
+          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+            O
+          </div>
         </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
-          I
-        </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
-          N
-        </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
-          G
-        </div>
-        <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
-          O
-        </div>
-      </div>
+      ) : (
+        <p className="text-teal-600 text-lg font-sans font-semibold animation animate-pulse">
+          {" "}
+          Please fill the table before you submit !{" "}
+        </p>
+      )}
 
       <div class="divider"></div>
 
