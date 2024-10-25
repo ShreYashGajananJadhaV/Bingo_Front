@@ -101,7 +101,7 @@ function Table() {
   }, [message]);
 
   return (
-    <div className="flex flex-col flex-wrap gap-2 items-center p-6 ">
+    <div className="flex flex-col flex-wrap gap-2 items-center p-6">
       {connected ? (
         <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
           <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">

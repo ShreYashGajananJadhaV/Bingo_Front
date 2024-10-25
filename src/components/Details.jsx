@@ -9,8 +9,9 @@ import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
-
+import WinLoseModal from "./WinLoseModal";
 function Details() {
+  const [hasWon, setHasWon] = useState(null);
   const {
     setMessage,
     setStompClient,
@@ -100,9 +101,10 @@ function Details() {
           setRowsCompleted(rows);
           if (won) {
             //handle Won condition
-            handleWON(data);
+            // handleWON(data);
+            setHasWon(true);
           } else if (data.includes("LOST")) {
-            gameStatus(data);
+            setHasWon(false);
           } else {
             setMessage(data);
           }
@@ -138,7 +140,8 @@ function Details() {
 
   function handleWON(messs) {
     Swal.fire({
-      title: messs,
+      title: <h1 className="bg-green-500">messs</h1>,
+      html: true,
       width: 600,
       padding: "3em",
       color: "#716add",
@@ -330,6 +333,13 @@ function Details() {
         </div>
       ) : (
         ""
+      )}
+      {hasWon == null ? (
+        ""
+      ) : hasWon ? (
+        <WinLoseModal hasWon={true}></WinLoseModal>
+      ) : (
+        <WinLoseModal hasWon={false}></WinLoseModal>
       )}
     </div>
   );
