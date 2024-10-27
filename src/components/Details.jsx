@@ -265,7 +265,7 @@ function Details() {
                 type="text"
                 id="first-name"
                 class="w-full p-2 pl-10 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="NAME"
+                placeholder="Name"
                 onChange={handleName}
                 disabled={connecting || connected}
               />
