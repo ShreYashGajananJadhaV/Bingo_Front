@@ -9,7 +9,9 @@ import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
+import { IoPerson } from "react-icons/io5";
 import WinLoseModal from "./WinLoseModal";
+import { PiPasswordBold } from "react-icons/pi";
 function Details() {
   const [hasWon, setHasWon] = useState(null);
   const {
@@ -225,12 +227,7 @@ function Details() {
 
       {!connected ? (
         <div
-          class="max-w-md p-4 rounded-2xl shadow-md border-2"
-          data-theme="halloween"
         >
-          <h2 class="text-center text-3xl font-bold mb-4 text-teal-500">
-            Game Details
-          </h2>
           <div
             className={
               connecting
@@ -260,21 +257,22 @@ function Details() {
           </div>
 
           <div>
-            <div class="flex flex-col mb-4">
+            <div class="relative flex flex-col mb-4">
               <input
                 type="text"
                 id="first-name"
-                class="w-full p-2 pl-10 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className=" input input-bordered input-lg placeholder:font-semibold placeholder:pl-5 placeholder:text-lg placeholder:text-teal-500 w-full p-2 pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Name"
                 onChange={handleName}
                 disabled={connecting || connected}
               />
+              <IoPerson className="absolute top-4 left-3 text-3xl text-white"></IoPerson>
             </div>
             <div class="flex flex-col mb-4 relative">
               <section>
                 {isGenerate ? (
                   <button
-                    className="bg-teal-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px] transform active:scale-90 transition-transform"
+                    className="bg-teal-500 rounded-md text-white font-semibold text-xs w-[60px] h-full absolute top-[0px] right-[0px] transform active:scale-90 transition-transform"
                     data-theme="aqua"
                     onClick={() => {
                       setIsGenerate(false);
@@ -286,7 +284,7 @@ function Details() {
                   </button>
                 ) : (
                   <button
-                    className="bg-teal-500 rounded-xl text-white font-semibold text-xs w-[60px] h-[30px] absolute top-[5px] right-[5px] transform active:scale-90 transition-transform"
+                    className="bg-teal-500 rounded-md text-white font-semibold text-xs w-[60px] h-full absolute top-0 right-0 transform active:scale-90 transition-transform"
                     data-theme="aqua"
                     disabled={connecting || connected}
                     onClick={() => {
@@ -300,11 +298,12 @@ function Details() {
                   type="text"
                   value={groupId}
                   id="connection-code"
-                  class="w-full p-2 pl-10 text-md font-sans text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
+                  class="placeholder:font-semibold placeholder:text-lg placeholder:text-teal-500 placeholder:pl-5    input input-bordered input-lg w-full pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
                   placeholder="Code"
                   onChange={handleGrouopIdChange}
                   disabled={connecting || connected}
                 />
+                <PiPasswordBold className="absolute top-4 left-3 text-3xl text-white"></PiPasswordBold>
               </section>
             </div>
             <div class="flex justify-between mb-4 space-x-4">
@@ -319,7 +318,7 @@ function Details() {
               Generate Code
             </button> */}
               <button
-                class={`bg-teal-600 font-sans w-full  p-2 text-gray-100  font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-2xl transform active:scale-90 transition-transform${
+                class={`bg-teal-600 font-sans w-full  p-4 text-gray-100  font-bold  focus:ring-2 ring-slate-300 shadow-lg rounded-lg transform active:scale-90 transition-transform${
                   connecting || connected ? "cursor-not-allowed" : ""
                 }`}
                 data-theme="aqua"
