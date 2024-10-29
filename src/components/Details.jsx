@@ -68,7 +68,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `http://192.168.1.6:8080/ws?groupId=${groupId}&user=${name}`
+      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
