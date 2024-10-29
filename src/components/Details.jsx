@@ -226,8 +226,7 @@ function Details() {
       )}
 
       {!connected ? (
-        <div
-        >
+        <div>
           <div
             className={
               connecting
@@ -261,7 +260,7 @@ function Details() {
               <input
                 type="text"
                 id="first-name"
-                className=" input input-bordered input-lg placeholder:font-semibold placeholder:pl-5 placeholder:text-lg placeholder:text-teal-500 w-full p-2 pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className=" input input-bordered input-lg placeholder:font-semibold placeholder:text-lg placeholder:text-teal-500 w-full p-2 pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                 placeholder="Name"
                 onChange={handleName}
                 disabled={connecting || connected}
@@ -298,7 +297,7 @@ function Details() {
                   type="text"
                   value={groupId}
                   id="connection-code"
-                  class="placeholder:font-semibold placeholder:text-lg placeholder:text-teal-500 placeholder:pl-5    input input-bordered input-lg w-full pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
+                  class="placeholder:font-semibold placeholder:text-lg placeholder:text-teal-500     input input-bordered input-lg w-full pl-16 text-md font-sans text-gray-200 border border-gray-300 rounded-lg outline-none focus:ring ring-white focus:ring-blue-600"
                   placeholder="Code"
                   onChange={handleGrouopIdChange}
                   disabled={connecting || connected}
