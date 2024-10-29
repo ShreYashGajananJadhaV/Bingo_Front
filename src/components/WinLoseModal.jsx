@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import loseImage from "./sad.png";
 import wonImage from "./trophy.png";
 import { useState } from "react";
+import useSound from "use-sound";
+import victorySound from "../sounds/victorySound.mp3";
 export default function WinLoseModal({ hasWon }) {
   const [close, setClose] = useState(false);
+
+  const [victory] = useSound(victorySound);
+
+  useEffect(() => {
+    if (hasWon) {
+      victory();
+    }
+  }, []);
+
   return (
     <div>
       {" "}

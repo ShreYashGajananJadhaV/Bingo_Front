@@ -4,7 +4,7 @@ import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
 import Lottie from "lottie-react";
 import bufferingAnimation from "../AnimationComponents/BufferingAni.json";
-import { RingLoader, PulseLoader } from "react-spinners";
+import { PulseLoader } from "react-spinners";
 import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { IoPerson } from "react-icons/io5";
 import WinLoseModal from "./WinLoseModal";
 import { PiPasswordBold } from "react-icons/pi";
+
 function Details() {
   const [hasWon, setHasWon] = useState(null);
   const {
@@ -34,6 +35,7 @@ function Details() {
   } = useContext(MessageContext);
 
   const [opponentStatus, setOpponentStatus] = useState("");
+
   function generateRandomCode() {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
@@ -66,7 +68,7 @@ function Details() {
     }
 
     let sock = new SockJS(
-      `https://communist-candi-shreyashjadhav-baaa549c.koyeb.app/ws?groupId=${groupId}&user=${name}`
+      `http://192.168.1.6:8080/ws?groupId=${groupId}&user=${name}`
     );
     var stompClient = Stomp.over(sock);
     setStompClient(stompClient);
