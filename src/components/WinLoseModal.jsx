@@ -56,7 +56,6 @@ export default function WinLoseModal({ hasWon }) {
       ) : (
         ""
       )}
-      );
     </div>
   );
 }
