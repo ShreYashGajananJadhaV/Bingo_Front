@@ -46,11 +46,8 @@ function App() {
       }}
     >
       <div className="h-max flex-grow  flex-wrap p-2" data-theme="dracula">
-        {/* <h1 className="text-4xl font-sans font-bold text-center mb-4 py-2 rounded-lg">
-          BINGO !
-        </h1> */}
+
         <div>
-          {" "}
           <Lottie
             className="w-[130px] h-[130px] m-auto"
             animationData={BingoLogo}
