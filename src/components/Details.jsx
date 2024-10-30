@@ -268,6 +268,13 @@ function Details() {
                 disabled={connecting || connected}
               />
               <IoPerson className="absolute top-4 left-3 text-3xl text-white"></IoPerson>
+              {name.length > 0 ? (
+                <p className="absolute top-[-14px] left-3 font-sans font-semibold z-50  transition-opacity text-teal-500 bg-[#282A36] ">
+                  Name
+                </p>
+              ) : (
+                ""
+              )}
             </div>
             <div class="flex flex-col mb-4 relative">
               <section>
@@ -305,6 +312,13 @@ function Details() {
                   disabled={connecting || connected}
                 />
                 <PiPasswordBold className="absolute top-4 left-3 text-3xl text-white"></PiPasswordBold>
+                {groupId.length > 0 ? (
+                  <p className="absolute top-[-14px] left-3 font-sans font-semibold z-50  transition-opacity text-teal-500 bg-[#282A36] ">
+                    Code
+                  </p>
+                ) : (
+                  ""
+                )}
               </section>
             </div>
             <div class="flex justify-between mb-4 space-x-4">
