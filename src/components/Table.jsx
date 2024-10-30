@@ -101,22 +101,22 @@ function Table() {
   }, [message]);
 
   return (
-    <div className="flex flex-col flex-wrap gap-2 items-center p-6">
+    <div className="flex flex-col flex-wrap gap-1 items-center p-6">
       {connected ? (
-        <div className="flex flex-row gap-2 justify-center md:flex-wrap font-bold relative">
-          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+        <div className="flex flex-row gap-1 justify-center md:flex-wrap font-bold relative">
+          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl  text-white rounded-full font-sans relative bg-red-400">
             B
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-yellow-400">
             I
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-blue-400">
             N
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-green-400">
             G
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-20 md:w-24 border p-1 flex justify-center items-center text-3xl  md:text-5xl sm:rounded-2xl bg-teal-500 text-white rounded-lg font-sans relative">
+          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-purple-400">
             O
           </div>
         </div>
@@ -129,162 +129,162 @@ function Table() {
 
       <div class="divider"></div>
 
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
+      <div className="flex flex-row gap-1 justify-center md:flex-wrap">
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className="  h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg sm:rounded-tl-3xl rounded-tl-2xl font-sans transform active:scale-90 transition-transform"
           id="1"
           onClick={() => handleClick(1)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="2"
           onClick={() => handleClick(2)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="3"
           onClick={() => handleClick(3)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="4"
           onClick={() => handleClick(4)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg sm:rounded-tr-3xl rounded-tr-2xl font-sans transform active:scale-90 transition-transform"
           id="5"
           onClick={() => handleClick(5)}
           disabled={!chance}
         ></button>
       </div>
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
+      <div className="flex flex-row gap-1 justify-center md:flex-wrap">
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="6"
           onClick={() => handleClick(6)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="7"
           onClick={() => handleClick(7)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="8"
           onClick={() => handleClick(8)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="9"
           onClick={() => handleClick(9)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="10"
           onClick={() => handleClick(10)}
           disabled={!chance}
         ></button>
       </div>
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
+      <div className="flex flex-row gap-1 justify-center md:flex-wrap">
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="11"
           onClick={() => handleClick(11)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="12"
           onClick={() => handleClick(12)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="13"
           onClick={() => handleClick(13)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="14"
           onClick={() => handleClick(14)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="15"
           onClick={() => handleClick(15)}
           disabled={!chance}
         ></button>
       </div>
 
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
+      <div className="flex flex-row gap-1 justify-center md:flex-wrap">
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="16"
           onClick={() => handleClick(16)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="17"
           onClick={() => handleClick(17)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="18"
           onClick={() => handleClick(18)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="19"
           onClick={() => handleClick(19)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="20"
           onClick={() => handleClick(20)}
           disabled={!chance}
         ></button>
       </div>
-      <div className="flex flex-row gap-2 justify-center md:flex-wrap">
+      <div className="flex flex-row gap-1 justify-center md:flex-wrap">
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg sm:rounded-bl-3xl rounded-bl-2xl font-sans transform active:scale-90 transition-transform"
           id="21"
           onClick={() => handleClick(21)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="22"
           onClick={() => handleClick(22)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="23"
           onClick={() => handleClick(23)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg font-sans transform active:scale-90 transition-transform"
           id="24"
           onClick={() => handleClick(24)}
           disabled={!chance}
         ></button>
         <button
-          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-xl sm:rounded-2xl font-mono transform active:scale-90 transition-transform"
+          className=" h-14 w-14 md:h-20 md:w-24 border p-1 text-center text-3xl  md:text-5xl rounded-sm sm:rounded-lg sm:rounded-br-3xl rounded-br-2xl font-sans transform active:scale-90 transition-transform"
           id="25"
           onClick={() => handleClick(25)}
           disabled={!chance}
