@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import loseImage from "./sad.png";
 import wonImage from "./trophy.png";
 import { useState } from "react";
-import useSound from "use-sound";
+import loseSound from "../sounds/loseSound.mp3";
 import victorySound from "../sounds/victorySound.mp3";
 
 export default function WinLoseModal({ hasWon }) {
@@ -18,7 +18,7 @@ export default function WinLoseModal({ hasWon }) {
       console.log("victory sound played");
     } else {
       // here add the lose sound
-      // playSound(loseSound);
+      playSound(loseSound);
       console.log("lose sound played");
     }
   }, []);
