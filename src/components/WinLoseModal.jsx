@@ -4,20 +4,30 @@ import wonImage from "./trophy.png";
 import { useState } from "react";
 import useSound from "use-sound";
 import victorySound from "../sounds/victorySound.mp3";
+
 export default function WinLoseModal({ hasWon }) {
   const [close, setClose] = useState(false);
 
-  const [victory] = useSound(victorySound);
-
+  const playSound = (sound) => {
+    var audio = new Audio(sound);
+    audio.play();
+  };
   useEffect(() => {
     if (hasWon) {
-      victory();
+      playSound(victorySound);
+      console.log("victory sound played");
+    } else {
+      // here add the lose sound
+      // playSound(loseSound);
+      console.log("lose sound played");
     }
   }, []);
 
   return (
     <div>
-      {" "}
+      <audio>
+        <source src="../sounds/victorySound.mp3" type="audio/mpeg" />
+      </audio>
       {!close ? (
         <div className=" font-sans flex justify-evenly fixed top-0 left-0 w-full h-full z-40 ">
           <div className="relative m-auto w-[300px] h-[400px] rounded-2xl text-white p-5 border-2 border-teal-500 border-double bg-gray-800 backdrop-blur-3xl">
