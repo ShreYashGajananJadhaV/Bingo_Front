@@ -269,7 +269,7 @@ function Details() {
               />
               <IoPerson className="absolute top-4 left-3 text-3xl text-white"></IoPerson>
               {name.length > 0 ? (
-                <p className="absolute top-[-14px] left-3 font-sans font-semibold z-50  transition-opacity text-teal-500 bg-[#282A36] ">
+                <p className="absolute top-[-14px] left-3 font-sans font-semibold   transition-opacity text-teal-500 bg-[#282A36] ">
                   Name
                 </p>
               ) : (
@@ -313,7 +313,7 @@ function Details() {
                 />
                 <PiPasswordBold className="absolute top-4 left-3 text-3xl text-white"></PiPasswordBold>
                 {groupId.length > 0 ? (
-                  <p className="absolute top-[-14px] left-3 font-sans font-semibold z-50  transition-opacity text-teal-500 bg-[#282A36] ">
+                  <p className="absolute top-[-14px] left-3 font-sans font-semibold   transition-opacity text-teal-500 bg-[#282A36] ">
                     Code
                   </p>
                 ) : (
