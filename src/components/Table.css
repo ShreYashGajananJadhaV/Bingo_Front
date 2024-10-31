@@ -1,0 +1,26 @@
+#bingo-button{
+    animation: bingo-button-animation 1s infinite ease-in;
+}
+
+
+@keyframes bingo-button-animation {
+    0%{
+        transform: rotate(0deg);
+
+    }
+    25%{
+        transform: rotate(8deg) scale(95%)
+
+
+    }
+    50%{
+        transform:  rotate(-8deg) scale(95%)
+
+    }
+    100%{
+        transform: rotate(0deg)
+
+    }
+
+
+}

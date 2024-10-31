@@ -5,7 +5,7 @@ import useSound from "use-sound";
 import popSound from "../sounds/popSound.mp3";
 import clickSound from "../sounds/clickSound.mp3";
 import pickSound from "../sounds/pickSound.mp3";
-
+import "./Table.css";
 function Table() {
   const {
     message,
@@ -104,19 +104,19 @@ function Table() {
     <div className="flex flex-col flex-wrap gap-1 items-center p-6">
       {connected ? (
         <div className="flex flex-row gap-1 justify-center md:flex-wrap font-bold relative">
-          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl  text-white rounded-full font-sans relative bg-red-400">
+          <div id="bingo-button" className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl  text-white rounded-full font-sans relative bg-red-400">
             B
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-yellow-400">
+          <div id="bingo-button" className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-yellow-400">
             I
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-blue-400">
+          <div id="bingo-button" className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-blue-400">
             N
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-green-400">
+          <div id="bingo-button" className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-green-400">
             G
           </div>
-          <div className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-purple-400">
+          <div id="bingo-button" className="bingo-cell h-14 w-14 md:h-24 md:w-24 border-4 border-dotted p-1 flex justify-center items-center text-3xl  md:text-5xl   text-white rounded-full font-sans relative bg-purple-400">
             O
           </div>
         </div>

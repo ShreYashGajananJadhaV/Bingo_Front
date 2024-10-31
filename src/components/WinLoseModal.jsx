@@ -30,7 +30,7 @@ export default function WinLoseModal({ hasWon }) {
       </audio>
       {!close ? (
         <div className=" font-sans flex justify-evenly fixed top-0 left-0 w-full h-full z-40 ">
-          <div className="relative m-auto w-[300px] h-[400px] rounded-2xl text-white p-5 border-2 border-teal-500 border-double bg-gray-800 backdrop-blur-3xl">
+          <div className="relative m-auto w-[300px] h-[400px] rounded-2xl text-white p-5 border-2 border-teal-500 border-double bg-gray-800 backdrop-blur-3xl animate-once animate-jump">
             <img
               src={hasWon ? wonImage : loseImage}
               className="w-[200px] h-[200px] mx-auto m-5"
