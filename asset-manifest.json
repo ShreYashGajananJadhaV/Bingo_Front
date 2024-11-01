@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Bingo_Front/static/css/main.efe6e03e.css",
-    "main.js": "/Bingo_Front/static/js/main.427fe2bd.js",
+    "main.css": "/Bingo_Front/static/css/main.28afc4ea.css",
+    "main.js": "/Bingo_Front/static/js/main.78f5f204.js",
     "static/js/885.06d25558.chunk.js": "/Bingo_Front/static/js/885.06d25558.chunk.js",
     "static/js/453.91c49b3b.chunk.js": "/Bingo_Front/static/js/453.91c49b3b.chunk.js",
     "static/media/victorySound.mp3": "/Bingo_Front/static/media/victorySound.3e321acdf2d53af3cd6a.mp3",
@@ -12,13 +12,13 @@
     "static/media/pickSound.mp3": "/Bingo_Front/static/media/pickSound.92e963c0716859a290f9.mp3",
     "static/media/clickSound.mp3": "/Bingo_Front/static/media/clickSound.5c903207d98e3239700c.mp3",
     "index.html": "/Bingo_Front/index.html",
-    "main.efe6e03e.css.map": "/Bingo_Front/static/css/main.efe6e03e.css.map",
-    "main.427fe2bd.js.map": "/Bingo_Front/static/js/main.427fe2bd.js.map",
+    "main.28afc4ea.css.map": "/Bingo_Front/static/css/main.28afc4ea.css.map",
+    "main.78f5f204.js.map": "/Bingo_Front/static/js/main.78f5f204.js.map",
     "885.06d25558.chunk.js.map": "/Bingo_Front/static/js/885.06d25558.chunk.js.map",
     "453.91c49b3b.chunk.js.map": "/Bingo_Front/static/js/453.91c49b3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.efe6e03e.css",
-    "static/js/main.427fe2bd.js"
+    "static/css/main.28afc4ea.css",
+    "static/js/main.78f5f204.js"
   ]
 }
