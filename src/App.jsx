@@ -45,8 +45,7 @@ function App() {
         setOpponentName,
       }}
     >
-      <div className="h-max flex-grow  flex-wrap p-2" data-theme="dracula">
-
+      <div className="h-max flex-grow  flex-wrap p-2" data-theme="sunset">
         <div>
           <Lottie
             className="w-[130px] h-[130px] m-auto"

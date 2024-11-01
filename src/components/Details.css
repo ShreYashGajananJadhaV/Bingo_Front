@@ -1,5 +1,5 @@
 #placeholderCode {
-    animation: placeholderAnimation 0.3s ease-in-out;
+    animation: placeholderAnimation 0.3s ease-in;
 }
 
 @keyframes placeholderAnimation {

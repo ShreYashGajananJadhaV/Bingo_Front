@@ -4,7 +4,13 @@ import MessageContext from "./MessageContext";
 import { Stomp } from "@stomp/stompjs";
 import Lottie from "lottie-react";
 import bufferingAnimation from "../AnimationComponents/BufferingAni.json";
-import { PulseLoader } from "react-spinners";
+
+import {
+  PulseLoader,
+  HashLoader,
+  FadeLoader,
+  ScaleLoader,
+} from "react-spinners";
 import ReactTypingEffect from "react-typing-effect";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
@@ -211,7 +217,11 @@ function Details() {
       <ToastContainer />
       {connecting && connected ? (
         <section>
-          <ReactTypingEffect text={opponentStatus} speed={50} />
+          <ReactTypingEffect
+            text={opponentStatus}
+            speed={50}
+            className="text-slate-400 font-semibold"
+          />
           <section
             className={`${
               connected && connecting
@@ -219,8 +229,7 @@ function Details() {
                 : "hidden"
             }`}
           >
-            <h1 className="font-sans text-xl text-white">STARTING GAME</h1>
-            <PulseLoader color="#298c25" />
+            <ScaleLoader color="#298c25" />
           </section>
         </section>
       ) : (
@@ -269,7 +278,10 @@ function Details() {
               />
               <IoPerson className="absolute top-4 left-3 text-3xl text-white"></IoPerson>
               {name.length > 0 ? (
-                <p id="placeholderCode" className="absolute top-[-14px] left-3 font-sans font-semibold   transition-opacity text-teal-500 bg-[#282A36] ">
+                <p
+                  id="placeholderCode"
+                  className="absolute top-[-14px] left-3 font-sans font-semibold   transition-opacity text-teal-500 bg-[#121C22]"
+                >
                   Name
                 </p>
               ) : (
@@ -313,7 +325,10 @@ function Details() {
                 />
                 <PiPasswordBold className="absolute top-4 left-3 text-3xl text-white"></PiPasswordBold>
                 {groupId.length > 0 ? (
-                  <p id="placeholderCode" className="absolute top-[-14px] left-3 font-sans font-semibold  text-teal-500 bg-[#282A36]">
+                  <p
+                    id="placeholderCode"
+                    className="absolute top-[-14px] left-3 font-sans font-semibold  text-teal-500 bg-[#121C22]"
+                  >
                     Code
                   </p>
                 ) : (
@@ -351,7 +366,10 @@ function Details() {
       {hasWon == null ? (
         ""
       ) : hasWon ? (
-        <WinLoseModal  className="animate-jump animate-once " hasWon={true}></WinLoseModal>
+        <WinLoseModal
+          className="animate-jump animate-once "
+          hasWon={true}
+        ></WinLoseModal>
       ) : (
         <WinLoseModal hasWon={false}></WinLoseModal>
       )}
