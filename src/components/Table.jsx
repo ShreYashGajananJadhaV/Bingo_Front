@@ -46,9 +46,27 @@ function Table() {
           message: id,
         })
       );
+      element.style.position = "relative"; // Ensure correct positioning
 
-      element.style.filter = "blur(3px)";
-      element.setAttribute("data-theme", "retro");
+      element.innerHTML = `
+  <div style="
+    background-color: #68369B;
+    border-radius: 10%;
+    height: 100%;
+    width: 100%;
+    color:white;
+    margin:auto;
+    line-height:100%;
+    display:flex;
+    justify-content: evenly;
+  ">
+  <p style="margin:auto">
+    ${element.innerText}
+    </p>
+  </div >
+`;
+      element.setAttribute("data-theme", "sunset");
+
       element.disabled = true;
     } else if (element != null && element.textContent === "") {
       element.textContent = Num;
@@ -85,12 +103,30 @@ function Table() {
   useEffect(() => {
     if (
       message &&
-      document.getElementById(message).getAttribute("data-theme") != "retro"
+      document.getElementById(message).getAttribute("data-theme") != "sunset"
     ) {
       pick();
       const element = document.getElementById(message);
-      element.setAttribute("data-theme", "retro");
-      element.style.filter = "blur(3px)";
+      element.style.position = "relative"; // Ensure correct positioning
+
+      element.innerHTML = `
+  <div style="
+    background-color: #68369B;
+    border-radius: 10%;
+    height: 100%;
+    width: 100%;
+    color:white;
+    margin:auto;
+    line-height:100%;
+    display:flex;
+    justify-content: evenly;
+  ">
+  <p style="margin:auto">
+    ${element.innerText}
+    </p>
+  </div >
+`;
+      element.setAttribute("data-theme", "sunset");
       element.disabled = true;
       element.classList.add("animate-jump");
 
