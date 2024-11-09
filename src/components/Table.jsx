@@ -51,7 +51,7 @@ function Table() {
       element.innerHTML = `
   <div style="
     background-color: #68369B;
-    border-radius: 10%;
+    border-radius: 30%;
     height: 80%;
     width: 80%;
     color:white;
@@ -112,7 +112,7 @@ function Table() {
       element.innerHTML = `
   <div style="
     background-color: #68369B;
-    border-radius: 10%;
+    border-radius: 30%;
     height: 80%;
     width: 80%;
     color:white;
