@@ -52,8 +52,8 @@ function Table() {
   <div style="
     background-color: #68369B;
     border-radius: 10%;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     color:white;
     margin:auto;
     line-height:100%;
@@ -113,8 +113,8 @@ function Table() {
   <div style="
     background-color: #68369B;
     border-radius: 10%;
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     color:white;
     margin:auto;
     line-height:100%;
