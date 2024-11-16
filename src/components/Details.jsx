@@ -142,7 +142,7 @@ function Details() {
       },
       () => {
         setConnecting(false);
-        gameStatus("Something went wrong!");
+        gameStatus("Unable to connect. Retry or use another code.");
         setConnected(false);
       }
     );
@@ -376,4 +376,5 @@ function Details() {
     </div>
   );
 }
+
 export default Details;
